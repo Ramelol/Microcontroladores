@@ -1,0 +1,148 @@
+*** EVALUATION ***
+PROGRAM "Lab_2.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.53 Build 17146, May 27 2017
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main_asm.obj                            Model: SMALL,         Lang: Assembler,     Compiler Version: Assembler for HC08 V-5.0.30 Build 17146, May 27 2017
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xE000 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            130     R     0xE000     0xE081   ROM
+MY_ZEROPAGE                        9   R/W       0x60       0x68   Z_RAM
+.stack                            64   R/W      0x100      0x13F   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          84 (dec:      132)
+READ_WRITE (R/W):       49 (dec:       73)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xE000   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main_asm.obj --
+- PROCEDURES:
+     Inicio                                    E000       0       0       0   .init       
+     _Startup                                  E000      14      20       0   .init       
+     main                                      E000       0       0       0   .init       
+     Menu                                      E014      18      24       0   .init       
+     RevisarPausa                              E02C      19      25       0   .init       
+     SumarD                                    E045       B      11       0   .init       
+     Retardo                                   E050       9       9       0   .init       
+     AuxRetardo                                E059      11      17       0   .init       
+     IncPausa                                  E06A       8       8       0   .init       
+     Retardo2                                  E072       6       6       0   .init       
+     AuxRetardo2                               E078       A      10       0   .init       
+- VARIABLES:
+     aux1                                        60       1       1       4   MY_ZEROPAGE 
+     aux2                                        61       1       1       3   MY_ZEROPAGE 
+     aux3                                        62       1       1       2   MY_ZEROPAGE 
+     aux4                                        63       1       1       2   MY_ZEROPAGE 
+     aux5                                        64       1       1       2   MY_ZEROPAGE 
+     auxU                                        65       1       1       4   MY_ZEROPAGE 
+     auxD                                        66       1       1       3   MY_ZEROPAGE 
+     display                                     67       1       1      10   MY_ZEROPAGE 
+     pausa                                       68       1       1       4   MY_ZEROPAGE 
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main_asm.obj                                 9    130      0
+  other                                       64      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Inicio Menu RevisarPausa SumarD Retardo AuxRetardo IncPausa 
+  Retardo2 AuxRetardo2 
+SECTION: "MY_ZEROPAGE"
+  aux1 aux2 aux3 aux4 aux5 auxU auxD display pausa 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     aux1                                        60       1       1       4   MY_ZEROPAGE 
+     aux2                                        61       1       1       3   MY_ZEROPAGE 
+     aux3                                        62       1       1       2   MY_ZEROPAGE 
+     aux4                                        63       1       1       2   MY_ZEROPAGE 
+     aux5                                        64       1       1       2   MY_ZEROPAGE 
+     auxU                                        65       1       1       4   MY_ZEROPAGE 
+     auxD                                        66       1       1       3   MY_ZEROPAGE 
+     display                                     67       1       1      10   MY_ZEROPAGE 
+     pausa                                       68       1       1       4   MY_ZEROPAGE 
+     main                                      E000       0       0       0   .init       
+     _Startup                                  E000      14      20       0   .init       
+     Inicio                                    E000       0       0       0   .init       
+     Menu                                      E014      18      24       0   .init       
+     RevisarPausa                              E02C      19      25       0   .init       
+     SumarD                                    E045       B      11       0   .init       
+     Retardo                                   E050       9       9       0   .init       
+     AuxRetardo                                E059      11      17       0   .init       
+     IncPausa                                  E06A       8       8       0   .init       
+     Retardo2                                  E072       6       6       0   .init       
+     AuxRetardo2                               E078       A      10       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES display auxU auxD pausa 
+Menu                      USES auxU display auxD 
+RevisarPausa              USES pausa display 
+SumarD                    USES display 
+Retardo                   USES aux1 aux2 aux3 
+AuxRetardo                USES aux1 aux2 aux3 
+IncPausa                  USES pausa 
+Retardo2                  USES aux4 aux5 
+AuxRetardo2               USES aux4 aux1 aux5 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 132
+

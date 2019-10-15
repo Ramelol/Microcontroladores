@@ -1,0 +1,131 @@
+
+PROGRAM "Inputs.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.53 Build 17146, May 27 2017
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main_asm.obj                            Model: SMALL,         Lang: Assembler,     Compiler Version: Assembler for HC08 V-5.0.30 Build 17146, May 27 2017
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xE000 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             76     R     0xE000     0xE04B   ROM
+MY_ZEROPAGE                        7   R/W       0x60       0x66   Z_RAM
+.stack                            64   R/W      0x100      0x13F   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          4E (dec:       78)
+READ_WRITE (R/W):       47 (dec:       71)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xE000   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main_asm.obj --
+- PROCEDURES:
+     _Startup                                  E000      14      20       0   .init       
+     main                                      E000       0       0       0   .init       
+     Menu                                      E014       8       8       0   .init       
+     SumarU                                    E01C       B      11       0   .init       
+     SumarD                                    E027       B      11       0   .init       
+     Retardo                                   E032       9       9       0   .init       
+     AuxRetardo                                E03B      11      17       0   .init       
+- VARIABLES:
+     auxU                                        60       1       1       7   MY_ZEROPAGE 
+     auxD                                        61       1       1       1   MY_ZEROPAGE 
+     auxT                                        62       1       1       0   MY_ZEROPAGE 
+     aux1                                        63       1       1       3   MY_ZEROPAGE 
+     aux2                                        64       1       1       3   MY_ZEROPAGE 
+     aux3                                        65       1       1       2   MY_ZEROPAGE 
+     pepito                                      66       1       1       0   MY_ZEROPAGE 
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main_asm.obj                                 7     76      0
+  other                                       64      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Menu SumarU SumarD Retardo AuxRetardo 
+SECTION: "MY_ZEROPAGE"
+  auxU auxD auxT aux1 aux2 aux3 pepito 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     auxU                                        60       1       1       7   MY_ZEROPAGE 
+     auxD                                        61       1       1       1   MY_ZEROPAGE 
+     auxT                                        62       1       1       0   MY_ZEROPAGE 
+     aux1                                        63       1       1       3   MY_ZEROPAGE 
+     aux2                                        64       1       1       3   MY_ZEROPAGE 
+     aux3                                        65       1       1       2   MY_ZEROPAGE 
+     pepito                                      66       1       1       0   MY_ZEROPAGE 
+     main                                      E000       0       0       0   .init       
+     _Startup                                  E000      14      20       0   .init       
+     Menu                                      E014       8       8       0   .init       
+     SumarU                                    E01C       B      11       0   .init       
+     SumarD                                    E027       B      11       0   .init       
+     Retardo                                   E032       9       9       0   .init       
+     AuxRetardo                                E03B      11      17       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES auxU auxD 
+SumarU                    USES auxU 
+SumarD                    USES auxU 
+Retardo                   USES aux1 aux2 aux3 
+AuxRetardo                USES aux1 aux2 aux3 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 78
+
